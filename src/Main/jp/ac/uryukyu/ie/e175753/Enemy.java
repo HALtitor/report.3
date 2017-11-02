@@ -13,12 +13,13 @@ public class Enemy extends LivingThing{
         super(name, maximumHP, attack);
     }
 
+    int HP=getHitPoint();
     @Override
     public void wounded(int damage) {
-        hitPoint -= damage;
-        if (hitPoint < 0) {
-            dead = true;
-            System.out.printf("モンスター%sは倒れた。\n", name);
+        HP -= damage;
+        if (HP < 0) {
+            setDead(true);
+            System.out.printf("モンスター%sは倒れた。\n", getName());
         }
     }
 
